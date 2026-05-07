@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- Definición del documento HTML5 e idioma (Español) -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Codificación estándar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Diseño responsivo -->
+    <title>Acceso | Crece Cole</title> <!-- Título de la página -->
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <!-- Enlaces a las hojas de estilo específicas para el acceso -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/acceso.css">
+</head>
+<body>
+    <!-- Encabezado con navegación simplificada -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- Logo con enlace al inicio -->
+                <a href="index.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M22 22l-7.5-1.5"></path></svg>
+                    crece cole
+                </a>
+                <!-- Menú móvil (hamburguesa) -->
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <!-- Enlaces de navegación comunes -->
+                <ul class="nav-links">
+                    <li><a href="index.html">inicio</a></li>
+                    <li><a href="nosotros.html">nosotros</a></li>
+                    <li><a href="proyectos.html">proyectos</a></li>
+                    <li><a href="impacto.html">impacto</a></li>
+                </ul>
+                <!-- Botón de acción secundaria (Volver) -->
+                <div class="auth-buttons">
+                    <a href="index.html" class="btn btn-outline">volver</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenedor principal del formulario de autenticación -->
+    <div class="auth-container">
+        <div class="auth-box animate-fade">
+            <!-- Pestañas para cambiar dinámicamente entre Inicio de Sesión y Registro -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tab-login">iniciar sesión</button>
+                <button class="auth-tab" id="tab-register">registrarse</button>
+            </div>
+
+            <!-- Formulario de Inicio de Sesión: Solicita email y clave -->
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="login-email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="login-pass" placeholder="••••••••" required>
+                </div>
+                <!-- Botón para procesar el acceso -->
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">entrar</button>
+            </form>
+
+            <!-- Formulario de Registro: Solicita nombre, email y nueva clave (Oculto por defecto) -->
+            <form id="register-form" style="display: none;">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="reg-name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="reg-email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="reg-pass" placeholder="Crea una contraseña" required>
+                </div>
+                <!-- Botón para procesar la creación de cuenta -->
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">crear cuenta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pie de página con enlaces institucionales -->
+    <footer>
+        <div class="container">
+            <h2>Crece Cole</h2>
+            <p>Juntos construimos la escuela que nuestros hijos merecen.</p>
+            <div class="footer-links">
+                <a href="#">privacidad</a>
+                <a href="#">contacto</a>
+                <a href="#">términos</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Crece Cole. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Carga de la arquitectura modular de scripts (JS) -->
+    <script src="js/constantes.js"></script>
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/autenticacion.js"></script>
+    <script src="js/proyectos.js"></script>
+    <script src="js/donaciones.js"></script>
+    <script src="js/gestor-interfaz.js"></script>
+    <script src="js/seguridad.js"></script>
+    <script src="js/principal.js"></script>
+    
+    <!-- Lógica local exclusiva para el manejo de la UI de esta página (Intercambio de formularios) -->
+    <script>
+        // Referencias a las pestañas y formularios
+        const tabLogin = document.getElementById('tab-login');
+        const tabRegister = document.getElementById('tab-register');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+
+        // Acción al hacer clic en la pestaña "Iniciar Sesión"
+        tabLogin.onclick = () => {
+            tabLogin.classList.add('active'); // Activa visualmente la pestaña
+            tabRegister.classList.remove('active'); // Desactiva la otra
+            loginForm.style.display = 'block'; // Muestra el login
+            registerForm.style.display = 'none'; // Oculta el registro
+        };
+
+        // Acción al hacer clic en la pestaña "Registrarse"
+        tabRegister.onclick = () => {
+            tabRegister.classList.add('active'); // Activa visualmente la pestaña
+            tabLogin.classList.remove('active'); // Desactiva la otra
+            registerForm.style.display = 'block'; // Muestra el registro
+            loginForm.style.display = 'none'; // Oculta el login
+        };
+
+        // Manejar el evento de envío del formulario de login
+        loginForm.onsubmit = (e) => {
+            e.preventDefault(); // Evita recarga de página
+            // Llama al módulo de autenticación
+            const success = App.login(
+                document.getElementById('login-email').value,
+                document.getElementById('login-pass').value
+            );
+            // Si es exitoso, redirige a la galería de proyectos
+            if (success) window.location.href = 'proyectos.html';
+            else alert('Credenciales incorrectas'); // Muestra error si falla
+        };
+
+        // Manejar el evento de envío del formulario de registro
+        registerForm.onsubmit = (e) => {
+            e.preventDefault(); // Evita recarga de página
+            // Llama al módulo de autenticación para guardar el nuevo usuario
+            App.register({
+                name: document.getElementById('reg-name').value,
+                email: document.getElementById('reg-email').value,
+                password: document.getElementById('reg-pass').value
+            });
+            // Tras registrarse, simula un clic en login para que el usuario pueda entrar
+            tabLogin.click();
+        };
+    </script>
+</body>
+</html>
+

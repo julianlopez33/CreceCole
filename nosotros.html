@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- Definición del tipo de documento HTML5 e idioma -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Crece Cole</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <!-- Enlaces a las hojas de estilo base y específica para esta página -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nosotros.css">
+</head>
+<body>
+    <!-- Encabezado y Navegación Principal -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- Logo corporativo -->
+                <a href="index.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M22 22l-7.5-1.5"></path></svg>
+                    crece cole
+                </a>
+                <!-- Botón de menú para visualización en móviles -->
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <!-- Enlaces de navegación -->
+                <ul class="nav-links">
+                    <li><a href="index.html">inicio</a></li>
+                    <li><a href="nosotros.html" style="color: var(--primary); font-weight: 700;">nosotros</a></li>
+                    <li><a href="proyectos.html">proyectos</a></li>
+                    <li><a href="impacto.html">impacto</a></li>
+                    <!-- Enlace dinámico al perfil del usuario logueado -->
+                    <li><a id="user-profile-link" href="perfil.html" style="display: none;">mi perfil</a></li>
+                </ul>
+                <!-- Botón de acceso (se actualiza mediante JS) -->
+                <div class="auth-buttons">
+                    <a id="login-link" href="acceso.html" class="btn btn-primary">iniciar sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección Hero: Presentación visual de la identidad de la organización -->
+        <section class="about-hero">
+            <div class="container">
+                <h1 class="animate-fade">Transformando la educación, <br><span>un proyecto a la vez.</span></h1>
+                <p class="animate-fade" style="animation-delay: 0.1s;">Crece Cole nació de la convicción de que cada estudiante merece las mejores herramientas para aprender y crecer.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Filosofía: Misión y Visión de la plataforma -->
+        <section class="section">
+            <div class="container">
+                <div class="mission-vision-grid">
+                    <!-- Tarjeta: Misión Institucional -->
+                    <div class="card animate-slide">
+                        <div class="icon-circle"></div>
+                        <h3>Nuestra Misión</h3>
+                        <p>Facilitar la conexión entre las necesidades reales de las escuelas y una comunidad dispuesta a apoyar, garantizando transparencia y un impacto directo en el aula.</p>
+                    </div>
+                    <!-- Tarjeta: Visión a Futuro -->
+                    <div class="card animate-slide" style="animation-delay: 0.1s;">
+                        <div class="icon-circle"></div>
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser la plataforma líder de crowdfunding escolar en el país, impulsando la innovación educativa a través del poder de la colaboración comunitaria.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Valores: Pilares éticos de Crece Cole -->
+        <section class="section" style="background: white;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem;">Nuestros Valores</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>Transparencia</h4>
+                        <p>Cada peso donado es rastreado y reportado con evidencias claras del proyecto finalizado.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Comunidad</h4>
+                        <p>Creemos en el poder de la unión entre padres, alumnos y maestros para mejorar su entorno.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Innovación</h4>
+                        <p>Buscamos constantemente nuevas formas de mejorar la experiencia educativa en todo México.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página Unificado -->
+    <footer>
+        <div class="container">
+            <h2>Crece Cole</h2>
+            <p>Juntos construimos la escuela que nuestros hijos merecen.</p>
+            <div class="footer-links">
+                <a href="#">privacidad</a>
+                <a href="#">contacto</a>
+                <a href="#">términos</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Crece Cole. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Carga de Scripts JavaScript modulares -->
+    <script src="js/constantes.js"></script>
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/autenticacion.js"></script>
+    <script src="js/proyectos.js"></script>
+    <script src="js/donaciones.js"></script>
+    <script src="js/gestor-interfaz.js"></script>
+    <script src="js/seguridad.js"></script>
+    <script src="js/principal.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,317 @@
+/* ==========================================================================
+   CONFIGURACIÓN GLOBAL Y VARIABLES
+   ========================================================================== */
+
+/* Importación de fuentes desde Google Fonts: Inter para texto y Outfit para títulos */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap');
+
+:root {
+    /* Paleta de Colores Principales: Definición de variables para reutilización */
+    --primary: #4f46e5; /* Color azul principal */
+    --primary-dark: #4338ca; /* Azul más oscuro para hover */
+    --secondary: #64748b; /* Gris azulado para elementos secundarios */
+    --accent: #c084fc; /* Morado para acentos visuales */
+    --success: #10b981; /* Verde para mensajes de éxito */
+    
+    /* Colores de Fondo y Texto: Control de contraste y legibilidad */
+    --bg-light: #f8fafc; /* Gris muy claro para el fondo general */
+    --bg-white: #ffffff; /* Blanco puro para tarjetas y contenedores */
+    --text-primary: #0f172a; /* Azul casi negro para el texto principal */
+    --text-secondary: #475569; /* Gris para textos de menor jerarquía */
+    --border: #e2e8f0; /* Color suave para bordes y separadores */
+    
+    /* Elevación y Sombras: Proporcionan profundidad a la interfaz */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* Sombra sutil */
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Sombra estándar */
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* Sombra pronunciada */
+    
+    /* Bordes y Transiciones: Suavidad en el diseño y las interacciones */
+    --radius: 12px; /* Radio de esquina para botones y tarjetas */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animación suave para transiciones */
+}
+
+/* ==========================================================================
+   RESETEO Y ESTILOS BASE
+   ========================================================================== */
+
+* {
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina rellenos por defecto */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Aplica la fuente principal al cuerpo */
+    background-color: var(--bg-light); /* Aplica el color de fondo claro */
+    color: var(--text-primary); /* Aplica el color de texto oscuro */
+    line-height: 1.6; /* Mejora la legibilidad con espacio entre líneas */
+    overflow-x: hidden; /* Evita el scroll horizontal accidental */
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Outfit', sans-serif; /* Aplica la fuente de títulos */
+    color: var(--secondary); /* Color gris azulado para los encabezados */
+}
+
+/* ==========================================================================
+   ANIMACIONES
+   ========================================================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; } /* Inicia invisible */
+    to { opacity: 1; } /* Termina visible */
+}
+
+.animate-fade { animation: fadeIn 0.4s ease-out forwards; } /* Clase para desvanecimiento */
+.animate-slide { animation: fadeIn 0.4s ease-out forwards; } /* Clase para deslizamiento (pendiente de transformar) */
+
+/* ==========================================================================
+   UTILIDADES DE DISEÑO (LAYOUT)
+   ========================================================================== */
+
+.container {
+    max-width: 1200px; /* Ancho máximo de la página */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    padding: 0 2rem; /* Espacio interno a los lados */
+}
+
+.section {
+    padding: 5rem 0; /* Separación vertical entre secciones principales */
+}
+
+/* ==========================================================================
+   ENCABEZADO Y NAVEGACIÓN (HEADER)
+   ========================================================================== */
+
+header {
+    background: var(--bg-white); /* Fondo blanco */
+    border-bottom: 1px solid var(--border); /* Línea divisoria inferior */
+    position: sticky; /* Se queda fijo al hacer scroll */
+    top: 0; /* Posición superior fija */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    padding: 0.75rem 0; /* Relleno vertical del encabezado */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque detrás del header */
+    background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el efecto blur */
+}
+
+nav {
+    display: flex; /* Alineación flexible */
+    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+    align-items: center; /* Centrado vertical de elementos */
+}
+
+.logo {
+    display: flex; /* Contenedor flexible para el icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    font-family: 'Outfit', sans-serif; /* Tipografía del logo */
+    font-size: 1.5rem; /* Tamaño de letra grande */
+    font-weight: 800; /* Letra muy gruesa */
+    color: var(--primary); /* Color azul del logo */
+    text-decoration: none; /* Elimina el subrayado de enlace */
+}
+
+.nav-links {
+    display: flex; /* Menú horizontal */
+    gap: 2rem; /* Separación entre enlaces */
+    list-style: none; /* Elimina los puntos de la lista */
+}
+
+.nav-links a {
+    text-decoration: none; /* Sin subrayado */
+    color: var(--text-primary); /* Texto oscuro */
+    font-weight: 500; /* Grosor de letra medio */
+    transition: var(--transition); /* Transición suave al pasar el mouse */
+}
+
+.nav-links a:hover {
+    color: var(--primary); /* Cambia a azul al pasar el mouse */
+}
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+
+.btn {
+    display: inline-block; /* Comportamiento de bloque en línea */
+    padding: 0.8rem 1.5rem; /* Tamaño del botón */
+    border-radius: var(--radius); /* Esquinas redondeadas */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 600; /* Letra negrita */
+    transition: var(--transition); /* Suavidad en el hover */
+    cursor: pointer; /* Cambia el cursor a mano */
+    border: none; /* Sin borde por defecto */
+    text-align: center; /* Centra el texto */
+}
+
+.btn-primary {
+    background: var(--primary); /* Fondo azul */
+    color: white; /* Texto blanco */
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark); /* Azul más oscuro al presionar */
+}
+
+.btn-outline {
+    background: transparent; /* Fondo transparente */
+    border: 2px solid var(--primary); /* Borde azul */
+    color: var(--primary); /* Texto azul */
+}
+
+.btn-outline:hover {
+    background: var(--primary); /* Fondo azul al pasar el mouse */
+    color: white; /* Texto blanco al pasar el mouse */
+}
+
+/* ==========================================================================
+   FORMULARIOS
+   ========================================================================== */
+
+.form-group {
+    margin-bottom: 1.5rem; /* Espacio entre campos del formulario */
+}
+
+label {
+    display: block; /* Etiqueta en su propia línea */
+    margin-bottom: 0.5rem; /* Espacio con el input */
+    font-weight: 500; /* Letra algo gruesa */
+    color: var(--text-secondary); /* Color gris para etiquetas */
+}
+
+input, select, textarea {
+    width: 100%; /* Ancho completo */
+    padding: 0.8rem; /* Espacio interno */
+    border: 2px solid var(--border); /* Borde gris suave */
+    border-radius: 12px; /* Esquinas redondeadas */
+    font-family: inherit; /* Hereda la fuente del body */
+    transition: var(--transition); /* Transición de color al enfocar */
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none; /* Elimina el borde azul por defecto del navegador */
+    border-color: var(--primary); /* Resalta el borde en azul al escribir */
+    background: #fff; /* Asegura fondo blanco */
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+
+footer {
+    background: var(--secondary); /* Fondo gris azulado oscuro */
+    color: white; /* Texto blanco */
+    padding: 5rem 0; /* Relleno vertical generoso */
+    text-align: center; /* Centra todo el contenido */
+}
+
+footer h2 {
+    color: white !important; /* Fuerza el color blanco para el título */
+    margin-bottom: 1rem; /* Espacio inferior */
+    font-size: 2rem; /* Tamaño de fuente grande */
+}
+
+footer p {
+    color: #94a3b8; /* Gris azulado claro para el párrafo */
+    margin-bottom: 2rem; /* Espacio con los enlaces */
+}
+
+.footer-links {
+    display: flex; /* Enlaces en horizontal */
+    justify-content: center; /* Centrado horizontal */
+    gap: 2rem; /* Separación entre enlaces */
+    margin-bottom: 2rem; /* Espacio con el copyright */
+}
+
+.footer-links a {
+    color: #94a3b8; /* Color suave para los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    transition: var(--transition); /* Suavidad en el hover */
+}
+
+.footer-links a:hover {
+    color: white; /* Blanco al pasar el mouse */
+}
+
+.footer-copy {
+    font-size: 0.9rem; /* Letra pequeña para el copyright */
+    color: #64748b; /* Gris tenue */
+}
+
+/* ==========================================================================
+   BOTÓN DE MENÚ MÓVIL (HAMBURGUESA)
+   ========================================================================== */
+
+.menu-toggle {
+    display: none; /* Oculto en pantallas grandes */
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: var(--primary); /* Icono en azul */
+    cursor: pointer; /* Mano al pasar el mouse */
+    padding: 0.5rem; /* Área de clic */
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (QUERIES DE MEDIOS)
+   ========================================================================== */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 1.5rem; /* Reduce el padding lateral */
+    }
+    
+    .section {
+        padding: 4rem 0; /* Reduce el espacio vertical entre secciones */
+    }
+}
+
+/* Celulares (Menú hamburguesa activado) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Muestra el botón de menú */
+    }
+
+    .nav-links {
+        display: none; /* Oculta el menú por defecto en móvil */
+        position: absolute; /* Superpuesto al contenido */
+        top: 100%; /* Justo debajo del header */
+        left: 0; /* Desde el borde izquierdo */
+        width: 100%; /* Ancho total */
+        background: white; /* Fondo blanco para el menú móvil */
+        flex-direction: column; /* Enlaces uno debajo del otro */
+        padding: 2rem; /* Relleno interno */
+        gap: 1.5rem; /* Espacio entre enlaces */
+        border-bottom: 1px solid var(--border); /* Borde inferior */
+        box-shadow: var(--shadow-lg); /* Sombra para dar sensación de flotado */
+        text-align: center; /* Centra el texto de los enlaces */
+    }
+
+    .nav-links.active {
+        display: flex; /* Muestra el menú cuando tiene la clase 'active' */
+    }
+
+    .auth-buttons {
+        display: none; /* Oculta los botones de auth en móvil para simplificar */
+    }
+
+    .section {
+        padding: 3rem 0; /* Reduce aún más el espacio vertical */
+    }
+
+    h1 { font-size: 2.5rem !important; } /* Reduce tamaño de H1 en móviles */
+    h2 { font-size: 2rem !important; } /* Reduce tamaño de H2 en móviles */
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem; /* Padding mínimo para pantallas diminutas */
+    }
+    
+    .footer-links {
+        flex-direction: column; /* Enlaces del footer en vertical */
+        gap: 1rem; /* Menor separación */
+    }
+}
+

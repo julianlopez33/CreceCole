@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- Definición del tipo de documento HTML5 e idioma -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impacto | Crece Cole</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <!-- Enlaces a las hojas de estilo globales y específicas para métricas de impacto -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/impacto.css">
+</head>
+<body>
+    <!-- Encabezado y Navegación Principal -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- Logo corporativo -->
+                <a href="index.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M22 22l-7.5-1.5"></path></svg>
+                    crece cole
+                </a>
+                <!-- Botón de menú móvil -->
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <!-- Lista de navegación -->
+                <ul class="nav-links">
+                    <li><a href="index.html">inicio</a></li>
+                    <li><a href="nosotros.html">nosotros</a></li>
+                    <li><a href="proyectos.html">proyectos</a></li>
+                    <li><a href="impacto.html" style="color: var(--primary); font-weight: 700;">impacto</a></li>
+                    <!-- Enlace al perfil (gestionado por JS) -->
+                    <li><a id="user-profile-link" href="perfil.html" style="display: none;">mi perfil</a></li>
+                </ul>
+                <!-- Área de botones de autenticación -->
+                <div class="auth-buttons">
+                    <a id="login-link" href="acceso.html" class="btn btn-primary">iniciar sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección de Estadísticas: Muestra el impacto tangible en cifras -->
+        <section class="section">
+            <div class="container">
+                <div class="impact-header animate-fade">
+                    <h1>Nuestro Impacto en <span>Números</span></h1>
+                    <p>Cada moneda donada se traduce en mejores oportunidades para miles de estudiantes.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <!-- Tarjeta: Dinero total recaudado -->
+                    <div class="stat-card animate-slide">
+                        <span class="stat-number">$150,000+</span>
+                        <span class="stat-desc">Recaudado Total</span>
+                    </div>
+                    <!-- Tarjeta: Conteo de proyectos finalizados -->
+                    <div class="stat-card animate-slide" style="animation-delay: 0.1s;">
+                        <span class="stat-number">45</span>
+                        <span class="stat-desc">Proyectos Completados</span>
+                    </div>
+                    <!-- Tarjeta: Cantidad de alumnos alcanzados -->
+                    <div class="stat-card animate-slide" style="animation-delay: 0.2s;">
+                        <span class="stat-number">12,000</span>
+                        <span class="stat-desc">Alumnos Beneficiados</span>
+                    </div>
+                    <!-- Tarjeta: Base de donantes comprometidos -->
+                    <div class="stat-card animate-slide" style="animation-delay: 0.3s;">
+                        <span class="stat-number">1,500</span>
+                        <span class="stat-desc">Donantes Activos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Testimonios: Historias que humanizan el impacto -->
+        <section class="section" style="background: white;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem;">Historias de Éxito</h2>
+                <div class="stories-grid">
+                    <!-- Historia: Mejora tecnológica -->
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?w=800&q=80" alt="Laboratorio">
+                        <div class="story-content">
+                            <h3>Laboratorio del Futuro</h3>
+                            <p>"Gracias a las donaciones, nuestra escuela ahora cuenta con 20 computadoras nuevas. Los alumnos de 6to grado ya están aprendiendo programación básica."</p>
+                            <span class="story-author">— Prof. Martha Jiménez</span>
+                        </div>
+                    </div>
+                    <!-- Historia: Mejora de infraestructura deportiva -->
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=800&q=80" alt="Cancha">
+                        <div class="story-content">
+                            <h3>Deporte Bajo Sombra</h3>
+                            <p>"Antes no podíamos jugar a mediodía por el sol. Ahora con la techumbre, el equipo de básquetbol entrena todos los días."</p>
+                            <span class="story-author">— Ricardo, Estudiante</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página Unificado -->
+    <footer>
+        <div class="container">
+            <h2>Crece Cole</h2>
+            <p>Juntos construimos la escuela que nuestros hijos merecen.</p>
+            <div class="footer-links">
+                <a href="#">privacidad</a>
+                <a href="#">contacto</a>
+                <a href="#">términos</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Crece Cole. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Carga de la arquitectura modular de scripts (JS) -->
+    <script src="js/constantes.js"></script>
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/autenticacion.js"></script>
+    <script src="js/proyectos.js"></script>
+    <script src="js/donaciones.js"></script>
+    <script src="js/gestor-interfaz.js"></script>
+    <script src="js/seguridad.js"></script>
+    <script src="js/principal.js"></script>
+</body>
+</html>
+

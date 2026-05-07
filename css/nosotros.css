@@ -1,0 +1,85 @@
+/* Sección Hero de la página "Nosotros" */
+.about-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); /* Degradado de azul a morado */
+    padding: 10rem 0; /* Relleno vertical muy amplio */
+    color: white; /* Texto blanco para contraste */
+    text-align: center; /* Centrado de texto */
+}
+
+/* Título principal del hero "Nosotros" */
+.about-hero h1 {
+    font-size: 3.5rem; /* Tamaño de fuente grande */
+    color: white; /* Color blanco */
+    line-height: 1.1; /* Interlineado compacto */
+    margin-bottom: 1.5rem; /* Espacio inferior */
+}
+
+/* Subtítulo o énfasis dentro del título */
+.about-hero h1 span {
+    opacity: 0.8; /* Texto ligeramente transparente */
+}
+
+/* Párrafo descriptivo del hero */
+.about-hero p {
+    font-size: 1.25rem; /* Tamaño de fuente legible */
+    max-width: 700px; /* Limita el ancho para mejor lectura */
+    margin: 0 auto; /* Centrado horizontal */
+    color: rgba(255, 255, 255, 0.9); /* Blanco con ligera transparencia */
+}
+
+/* Cuadrícula para Misión y Visión */
+.mission-vision-grid {
+    display: grid; /* Sistema de rejilla */
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 3rem; /* Espacio entre columnas */
+    margin-top: -5rem; /* Superpone las tarjetas sobre el hero */
+}
+
+/* Círculo decorativo para iconos */
+.icon-circle {
+    width: 60px; /* Ancho fijo */
+    height: 60px; /* Alto fijo */
+    background: var(--bg-light); /* Fondo gris claro */
+    border-radius: 50%; /* Forma circular */
+    display: flex; /* Centrado del icono interno */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem; /* Tamaño del icono */
+    margin-bottom: 1.5rem; /* Espacio con el texto inferior */
+}
+
+/* Cuadrícula de valores de la empresa */
+.values-grid {
+    display: grid; /* Sistema de rejilla */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+    gap: 3rem; /* Espacio entre valores */
+}
+
+/* Título de cada valor */
+.value-item h4 {
+    font-size: 1.25rem; /* Tamaño de fuente medio */
+    color: var(--primary); /* Color azul principal */
+    margin-bottom: 1rem; /* Espacio inferior */
+}
+
+/* Descripción de cada valor */
+.value-item p {
+    color: var(--text-secondary); /* Color gris tenue */
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Las cuadrículas pasan a tener una sola columna */
+    .mission-vision-grid, .values-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Reduce el relleno del hero en móvil */
+    .about-hero {
+        padding: 6rem 0;
+    }
+    /* Reduce el tamaño del título en móvil */
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+

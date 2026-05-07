@@ -1,0 +1,28 @@
+ESTRUCTURA DE ARCHIVOS - CRECECOLE
+
+HTML (Estructura)
+- index.html: Inicio / Portada
+- proyectos.html: Galería / Campañas
+- nosotros.html: Información / Misión
+- impacto.html: Resultados / Historias
+- acceso.html: Ingreso / Registro
+- perfil.html: Usuario / Historial
+
+CSS (Diseño)
+- css/main.css: Base / Global
+- css/index.css: Estilos Inicio
+- css/proyectos.css: Estilos Galería
+- css/nosotros.css: Estilos Info
+- css/impacto.css: Estilos Resultados
+- css/acceso.css: Estilos Login
+- css/perfil.css: Estilos Usuario
+
+JS (Lógica)
+- js/constantes.js: Datos Iniciales
+- js/almacenamiento.js: Base de Datos Local
+- js/autenticacion.js: Sistema de Cuentas
+- js/proyectos.js: Gestor de Campañas
+- js/donaciones.js: Sistema de Pagos
+- js/gestor-interfaz.js: Control Visual
+- js/seguridad.js: Filtro de Acceso
+- js/principal.js: Motor del Sitio

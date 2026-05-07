@@ -1,0 +1,322 @@
+/* ==========================================================================
+   DISEÑO DE LA CUADRÍCULA DE PROYECTOS
+   ========================================================================== */
+
+/* Contenedor principal de la galería de proyectos */
+#projects-grid {
+    display: grid; /* Utiliza el sistema de rejilla (Grid) */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columnas automáticas de al menos 300px */
+    gap: 2rem; /* Espacio entre las tarjetas de proyectos */
+}
+
+/* ==========================================================================
+   ESTILOS DE LAS TARJETAS (CARDS)
+   ========================================================================== */
+
+/* Estilo base de cada tarjeta de proyecto */
+.card {
+    background: var(--bg-white); /* Fondo blanco */
+    border-radius: var(--radius); /* Esquinas redondeadas según variable global */
+    padding: 1.5rem; /* Espacio interno */
+    box-shadow: var(--shadow); /* Sombra suave */
+    transition: var(--transition); /* Transición suave para efectos hover */
+    border: 1px solid var(--border); /* Borde gris tenue */
+    display: flex; /* Flexbox para organizar el contenido verticalmente */
+    flex-direction: column; /* Elementos uno debajo del otro */
+    height: 100%; /* Asegura que todas las tarjetas tengan el mismo alto */
+}
+
+/* Efecto al pasar el mouse sobre la tarjeta */
+.card:hover {
+    transform: translateY(-8px); /* Eleva ligeramente la tarjeta */
+    box-shadow: var(--shadow-lg); /* Sombra más pronunciada */
+    border-color: var(--primary); /* Cambia el color del borde al azul principal */
+}
+
+/* Contenedor de la imagen dentro de la tarjeta */
+.card-img-container {
+    width: 100%; /* Ancho total de la tarjeta */
+    height: 200px; /* Alto fijo para uniformidad */
+    border-radius: 8px; /* Esquinas redondeadas para la imagen */
+    overflow: hidden; /* Corta cualquier parte de la imagen que sobresalga */
+    margin-bottom: 1.25rem; /* Espacio con el título inferior */
+    position: relative; /* Base para posicionar la etiqueta de categoría */
+}
+
+/* Estilo de la imagen del proyecto */
+.card-img {
+    width: 100%; /* Ocupa todo el contenedor */
+    height: 100%; /* Ocupa todo el contenedor */
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    transition: var(--transition); /* Suavidad para el efecto zoom */
+}
+
+/* Zoom de la imagen al pasar el mouse por la tarjeta */
+.card:hover .card-img {
+    transform: scale(1.1); /* Agranda la imagen un 10% */
+}
+
+/* Etiqueta de Categoría que flota sobre la imagen */
+.category-badge {
+    position: absolute; /* Posicionamiento relativo al contenedor de imagen */
+    top: 1rem; /* Margen superior */
+    right: 1rem; /* Margen derecho */
+    background: var(--bg-white); /* Fondo blanco */
+    padding: 0.4rem 0.8rem; /* Tamaño de la etiqueta */
+    border-radius: 20px; /* Forma de píldora */
+    font-size: 0.7rem; /* Texto pequeño */
+    font-weight: 700; /* Letra negrita */
+    text-transform: uppercase; /* Convertir a mayúsculas */
+    letter-spacing: 0.05em; /* Espaciado entre letras */
+    color: var(--primary); /* Color de texto azul principal */
+    box-shadow: var(--shadow-sm); /* Sombra muy sutil */
+}
+
+/* ==========================================================================
+   ESTADÍSTICAS Y PROGRESO DEL PROYECTO
+   ========================================================================== */
+
+/* Contenedor de la barra de progreso */
+.progress-container {
+    background: #f1f5f9; /* Fondo gris claro de la barra */
+    height: 10px; /* Grosor de la barra */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 1.25rem; /* Espacio inferior */
+    overflow: hidden; /* Asegura que la barra interna respete el radio */
+    position: relative;
+}
+
+/* Barra de progreso coloreada */
+.progress-bar {
+    background: linear-gradient(90deg, var(--primary), var(--accent)); /* Degradado azul a morado */
+    height: 100%; /* Ocupa todo el alto del contenedor */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Animación suave de carga */
+}
+
+/* Contenedor de montos recaudados */
+.project-stats {
+    display: flex; /* Alineación horizontal */
+    justify-content: space-between; /* Un monto a la izquierda y otro a la derecha */
+    align-items: center; /* Centrado vertical */
+    margin-bottom: 1.5rem; /* Espacio con el botón inferior */
+}
+
+/* Grupo de texto de cada estadística */
+.stat-group {
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Etiqueta arriba, valor abajo */
+}
+
+/* Etiqueta de la estadística (ej: "Recaudado") */
+.stat-label {
+    font-size: 0.75rem; /* Fuente pequeña */
+    color: var(--text-secondary); /* Color gris tenue */
+    font-weight: 500; /* Grosor medio */
+}
+
+/* Valor numérico de la estadística */
+.stat-value {
+    font-size: 1rem; /* Tamaño estándar */
+    font-weight: 700; /* Negrita */
+    color: var(--text-primary); /* Color oscuro */
+}
+
+/* Porcentaje de avance resaltado */
+.stat-percent {
+    color: var(--primary); /* Color azul principal */
+    font-weight: 800; /* Letra muy gruesa */
+    font-size: 1.1rem; /* Un poco más grande */
+}
+
+/* ==========================================================================
+   DISEÑO DE VENTANAS MODALES (MODALS)
+   ========================================================================== */
+
+/* Fondo oscurecido que cubre toda la pantalla detrás del modal */
+.modal-overlay {
+    position: fixed; /* Fijo en la pantalla */
+    top: 0; /* Desde el tope */
+    left: 0; /* Desde la izquierda */
+    width: 100%; /* Todo el ancho */
+    height: 100%; /* Todo el alto */
+    background: rgba(15, 23, 42, 0.7); /* Color oscuro semi-transparente */
+    z-index: 2000; /* Prioridad alta de visualización */
+    display: flex; /* Flex para centrar el modal */
+    align-items: flex-start; /* Alinea al inicio para permitir scroll si es largo */
+    justify-content: center; /* Centrado horizontal */
+    backdrop-filter: blur(8px); /* Desenfoque del fondo */
+    padding: 2rem 1rem; /* Espaciado interno */
+    overflow-y: auto; /* Permite scroll vertical si el contenido excede la pantalla */
+}
+
+/* Caja blanca que contiene el formulario del modal */
+.modal-content {
+    background: var(--bg-white); /* Fondo blanco */
+    width: 100%; /* Ancho total del contenedor */
+    max-width: 550px; /* Ancho máximo de 550px */
+    padding: 3rem; /* Espaciado interno generoso */
+    border-radius: 24px; /* Esquinas muy redondeadas */
+    box-shadow: var(--shadow-lg); /* Sombra profunda */
+    position: relative; /* Base para elementos internos */
+    margin-top: auto; /* Centrado vertical flexible */
+    margin-bottom: auto; /* Centrado vertical flexible */
+}
+
+/* Fila del formulario con dos columnas */
+.form-row {
+    display: grid; /* Rejilla de dos columnas */
+    grid-template-columns: 1fr 1fr; /* Mitad y mitad */
+    gap: 1.5rem; /* Espacio entre columnas */
+}
+
+/* Contenedor de botones de acción del modal (Confirmar/Cancelar) */
+.modal-actions {
+    display: flex; /* Botones en horizontal */
+    gap: 1rem; /* Separación entre botones */
+    margin-top: 2.5rem; /* Espacio superior */
+}
+
+/* ==========================================================================
+   SECCIÓN HERO DE PROYECTOS
+   ========================================================================== */
+
+/* Banner principal de la página de proyectos */
+.hero-banner {
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Título a un lado, botón al otro */
+    align-items: center; /* Centrado vertical */
+    margin-bottom: 4rem; /* Margen con la galería */
+    gap: 2rem; /* Separación de elementos */
+    flex-wrap: wrap; /* Permite que el botón baje en pantallas pequeñas */
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); /* Degradado corporativo */
+    padding: 3rem; /* Espacio interno del banner */
+    border-radius: 24px; /* Esquinas redondeadas */
+    color: white; /* Texto blanco */
+}
+
+/* Título dentro del banner hero */
+.hero-banner h1 {
+    color: white; /* Color blanco */
+    margin-bottom: 0.5rem; /* Espacio con el párrafo */
+    font-size: 2.5rem; /* Tamaño grande */
+}
+
+/* Párrafo descriptivo en el banner */
+.hero-banner p {
+    color: rgba(255,255,255,0.9); /* Blanco semi-transparente */
+    font-size: 1.1rem; /* Tamaño de fuente cómodo */
+    max-width: 500px; /* Limita el ancho del texto */
+}
+
+/* ==========================================================================
+   FILTROS Y BOTONES ESPECÍFICOS
+   ========================================================================== */
+
+/* Botón especial para crear proyecto */
+.btn-create {
+    background: white; /* Fondo blanco */
+    color: var(--primary); /* Texto azul principal */
+    padding: 1rem 2rem; /* Tamaño generoso */
+    border-radius: 12px; /* Esquinas redondeadas */
+    font-weight: 700; /* Texto en negrita */
+    box-shadow: var(--shadow-lg); /* Sombra pronunciada */
+}
+
+/* Contenedor de botones de filtrado por categoría */
+.filter-container {
+    display: flex; /* Botones en horizontal */
+    gap: 1rem; /* Separación entre filtros */
+    margin-bottom: 3rem; /* Espacio con la galería */
+    overflow-x: auto; /* Permite scroll horizontal en móviles */
+    padding-bottom: 1rem; /* Espacio para que no se corte la sombra al scrollear */
+    scrollbar-width: none; /* Oculta barra de scroll en Firefox */
+}
+
+/* Estilo redondeado (píldora) para botones de filtro */
+.filter-btn-pill {
+    border-radius: 30px; /* Forma de cápsula */
+}
+
+/* Título específico del modal de donación */
+.modal-donation-title {
+    margin-bottom: 1rem; /* Margen inferior */
+    color: var(--text-primary); /* Color oscuro */
+    font-size: 1.8rem; /* Tamaño de fuente grande */
+}
+
+/* Campo de entrada especial para montos de donación */
+.donation-input {
+    font-size: 1.5rem; /* Fuente grande para el número */
+    text-align: center; /* Centra el monto */
+    padding: 1rem; /* Relleno amplio */
+    border-radius: 16px; /* Esquinas redondeadas */
+    border-color: var(--primary); /* Resalta el borde en azul */
+}
+
+/* ==========================================================================
+   RESPONSIVO (MEDIOS)
+   ========================================================================== */
+
+/* Ajustes para dispositivos móviles y tablets */
+@media (max-width: 768px) {
+    /* El banner hero se vuelve vertical */
+    .hero-banner {
+        padding: 2rem; /* Reduce el relleno */
+        flex-direction: column; /* Apila elementos verticalmente */
+        text-align: center; /* Centra el texto */
+    }
+    
+    /* Centra el párrafo del banner */
+    .hero-banner p {
+        margin: 0 auto;
+    }
+
+    /* Ajustes para que el modal use mejor el espacio en pantallas pequeñas */
+    .modal-content {
+        padding: 2rem 1.5rem; /* Reduce rellenos internos */
+        border-radius: 20px; /* Suaviza esquinas */
+        max-width: 95%; /* Ocupa casi todo el ancho */
+        margin: 1rem auto; /* Margen exterior */
+    }
+
+    /* Título más pequeño en móvil */
+    .modal-content h2 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Filas de formulario pasan a ser una sola columna */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Botones de acción del modal se apilan */
+    .modal-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    /* Botones ocupan todo el ancho en móvil */
+    .modal-actions .btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* La cuadrícula de proyectos pasa a una sola columna */
+    #projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ajustes para pantallas extra pequeñas */
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 1rem 0.5rem; /* Relleno mínimo */
+    }
+    
+    .modal-content {
+        padding: 1.5rem 1rem; /* Relleno mínimo para el contenido */
+    }
+}
+

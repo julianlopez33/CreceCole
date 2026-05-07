@@ -1,0 +1,56 @@
+/* Diseño general de la página de acceso (Login/Registro) */
+.access-body {
+    background: #f8fafc; /* Fondo gris claro para toda la pantalla */
+    min-height: 100vh; /* Asegura que ocupe al menos todo el alto de la ventana */
+    display: flex; /* Uso de flex para centrar el contenido */
+    align-items: center; /* Centrado vertical del formulario */
+    justify-content: center; /* Centrado horizontal del formulario */
+    padding: 2rem; /* Espaciado interno para que no toque los bordes en móviles */
+}
+
+/* Contenedor principal del formulario de autenticación */
+.auth-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 450px; /* Pero no más de 450px para mantener la estética */
+}
+
+/* Encabezado del área de autenticación */
+.auth-header {
+    text-align: center; /* Centra el texto y el logo */
+    margin-bottom: 2rem; /* Espacio con el formulario */
+}
+
+/* Ajuste del logo dentro del encabezado de acceso */
+.auth-header .logo {
+    justify-content: center; /* Asegura que el logo esté centrado */
+    margin-bottom: 1rem; /* Espacio con el título */
+}
+
+/* Pie de página del área de autenticación (cambio entre login/registro) */
+.auth-footer {
+    margin-top: 2rem; /* Separación con el formulario */
+    text-align: center; /* Centra el texto */
+    border-top: 1px solid #f1f5f9; /* Línea divisoria sutil */
+    padding-top: 1.5rem; /* Espacio sobre el texto */
+}
+
+/* Estilo para los enlaces de alternancia (Registrarse / Iniciar Sesión) */
+.toggle-link {
+    color: var(--primary); /* Color azul principal */
+    font-weight: 600; /* Letra negrita */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/* Contenedor del enlace para volver al inicio */
+.back-link {
+    text-align: center; /* Centra el enlace */
+    margin-top: 2rem; /* Separación superior */
+}
+
+/* Estilo del enlace de regreso */
+.back-link a {
+    color: var(--text-secondary); /* Color gris tenue */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 0.9rem; /* Letra un poco más pequeña */
+}
+

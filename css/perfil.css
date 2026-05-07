@@ -1,0 +1,96 @@
+/* Diseño de la rejilla del perfil */
+.profile-grid {
+    display: grid; /* Sistema de rejilla */
+    grid-template-columns: 1fr 2fr; /* Sidebar estrecho a la izquierda, contenido ancho a la derecha */
+    gap: 3rem; /* Espacio entre columnas */
+}
+
+/* Ajustes para pantallas medianas (Tablets) */
+@media (max-width: 992px) {
+    .profile-grid {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+}
+
+/* Estilo del avatar en el sidebar del perfil */
+.profile-avatar {
+    width: 80px; /* Ancho fijo */
+    height: 80px; /* Alto fijo */
+    background: #f1f5f9; /* Fondo gris muy claro */
+    border-radius: 50%; /* Forma circular */
+    margin: 0 auto 1.5rem auto; /* Centrado horizontalmente y espacio inferior */
+    display: flex; /* Centrado de las iniciales */
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* Tamaño de fuente grande para las iniciales */
+    color: var(--text-secondary); /* Color de texto gris */
+    border: 1px solid #e2e8f0; /* Borde sutil */
+}
+
+/* Tarjeta de impacto/estadísticas del usuario */
+.impact-card {
+    background: #f8fafc; /* Fondo gris claro */
+    padding: 1.5rem; /* Espacio interno */
+    border-radius: 12px; /* Esquinas redondeadas */
+    text-align: left; /* Alineación a la izquierda */
+    border: 1px solid #f1f5f9; /* Borde muy suave */
+    margin-top: 2rem; /* Separación superior */
+}
+
+/* Título de la tarjeta de impacto */
+.impact-card h4 {
+    font-size: 0.8rem; /* Fuente pequeña */
+    color: var(--text-secondary); /* Color gris tenue */
+    margin-bottom: 1rem; /* Espacio inferior */
+    text-transform: uppercase; /* Mayúsculas */
+    letter-spacing: 0.05em; /* Espaciado entre letras */
+}
+
+/* Estilo para cada línea de estadística de impacto */
+.impact-stat {
+    display: flex; /* Alineación horizontal */
+    justify-content: space-between; /* Etiqueta a un lado, valor al otro */
+    margin-bottom: 0.5rem; /* Espacio entre líneas */
+    font-size: 0.9rem; /* Fuente legible */
+}
+
+/* Valor de la estadística de impacto */
+.impact-stat-value {
+    font-weight: 600; /* Letra algo gruesa */
+}
+
+/* Elemento individual de la lista de contribuciones */
+.contribution-item {
+    padding: 1.5rem 0; /* Relleno vertical */
+    border-bottom: 1px solid #f1f5f9; /* Línea divisoria inferior */
+    display: flex; /* Alineación horizontal */
+    justify-content: space-between; /* Info a la izquierda, monto a la derecha */
+    align-items: center; /* Centrado vertical */
+}
+
+/* Título de la contribución (nombre del proyecto) */
+.contribution-info h4 {
+    margin-bottom: 0.2rem; /* Espacio con la fecha */
+    color: var(--text-primary); /* Texto oscuro */
+}
+
+/* Fecha de la contribución */
+.contribution-date {
+    font-size: 0.8rem; /* Fuente pequeña */
+    color: var(--text-secondary); /* Gris tenue */
+}
+
+/* Monto de la contribución resaltado */
+.contribution-amount {
+    font-weight: 700; /* Negrita */
+    color: var(--primary); /* Azul principal */
+    font-size: 1.1rem; /* Un poco más grande */
+}
+
+/* Estado vacío cuando no hay contribuciones */
+.empty-state {
+    text-align: center; /* Centrado del mensaje */
+    padding: 3rem; /* Espacio interno amplio */
+    color: var(--text-secondary); /* Color gris tenue */
+}
+

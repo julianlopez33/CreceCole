@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- Definición del tipo de documento HTML5 y el idioma de la página (Español) -->
+<html lang="es">
+
+<head>
+    <!-- Configuración Básica y SEO para mejorar el posicionamiento en buscadores -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres estándar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Asegura que la web sea responsiva en móviles -->
+    <title>Crece Cole | Crowdfunding Escolar</title> <!-- Título que aparece en la pestaña del navegador -->
+    <meta name="description"
+        content="Plataforma de recaudación de fondos para proyectos escolares. Ayuda a tu colegio a crecer."> <!-- Breve resumen para buscadores -->
+    
+    <!-- Configuración de PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="apple-touch-icon" href="img/icon-192.png">
+
+    <!-- Enlaces a las hojas de estilo (CSS) -->
+    <link rel="stylesheet" href="css/main.css"> <!-- Estilos globales y compartidos -->
+    <link rel="stylesheet" href="css/index.css"> <!-- Estilos específicos para la página de inicio -->
+</head>
+
+<body>
+    <!-- Encabezado de la página: Contiene el logo y la navegación principal -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- Logo de la plataforma con icono SVG -->
+                <a href="index.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                        <path d="M2 2l7.5 1.5"></path>
+                        <path d="M22 22l-7.5-1.5"></path>
+                    </svg>
+                    crece cole
+                </a>
+                
+                <!-- Botón de Menú tipo Hamburguesa para dispositivos móviles -->
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Lista de enlaces de navegación -->
+                <ul class="nav-links">
+                    <li><a href="index.html" style="color: var(--primary); font-weight: 700;">inicio</a></li>
+                    <li><a href="nosotros.html">nosotros</a></li>
+                    <li><a href="proyectos.html">proyectos</a></li>
+                    <li><a href="impacto.html">impacto</a></li>
+                    <!-- Este enlace se muestra solo cuando el usuario ha iniciado sesión -->
+                    <li><a id="user-profile-link" href="perfil.html" style="display: none;">mi perfil</a></li>
+                </ul>
+
+                <!-- Botones de Acción: Iniciar Sesión / Registro -->
+                <div class="auth-buttons">
+                    <a id="login-link" href="acceso.html" class="btn btn-primary">iniciar sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección Hero: Mensaje de impacto principal al entrar a la web -->
+        <section class="index-hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="animate-slide">
+                        <h1 class="hero-title">Siembra <span>futuro</span> en tu escuela.</h1>
+                        <p class="hero-description">
+                            Une a tu comunidad para financiar proyectos que transforman la educación. Desde laboratorios
+                            de vanguardia hasta espacios deportivos de primer nivel.
+                        </p>
+                        <!-- Botones de llamado a la acción (CTA) -->
+                        <div class="hero-buttons">
+                            <a href="proyectos.html" class="btn btn-primary"
+                                style="padding: 1.2rem 2.5rem; font-size: 1.1rem; border-radius: 16px; box-shadow: var(--shadow-lg);">explorar
+                                proyectos</a>
+                            <a href="#info" class="btn"
+                                style="padding: 1.2rem 2.5rem; font-size: 1.1rem; border-radius: 16px; background: white; color: var(--text-primary); border: 1px solid var(--border);">¿cómo
+                                funciona?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Estadísticas Rápidas: Muestra logros de la plataforma -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item animate-fade">
+                        <h2>45+</h2>
+                        <p>Proyectos Logrados</p>
+                    </div>
+                    <div class="stat-item animate-fade" style="animation-delay: 0.1s;">
+                        <h2>$150k+</h2>
+                        <p>Recaudado</p>
+                    </div>
+                    <div class="stat-item animate-fade" style="animation-delay: 0.2s;">
+                        <h2>12k+</h2>
+                        <p>Alumnos Felices</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Misión: Explica el propósito de Crece Cole -->
+        <section id="info" class="section">
+            <div class="container">
+                <div class="mission-header">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Nuestra Misión</h2>
+                    <p style="color: var(--text-secondary);">Facilitamos la transparencia y la participación de la
+                        comunidad escolar para que ningún gran proyecto se quede sin fondos.</p>
+                </div>
+
+                <div class="mission-grid">
+                    <!-- Tarjeta: Validación de Proyectos -->
+                    <div class="card">
+                        <div class="mission-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
+                        </div>
+                        <h3>Proyectos Reales</h3>
+                        <p style="color: var(--text-secondary);">Validamos cada iniciativa para asegurar que el
+                            beneficio impacte directamente en la experiencia educativa.</p>
+                    </div>
+                    <!-- Tarjeta: Seguridad en Donaciones -->
+                    <div class="card">
+                        <div class="mission-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Donación Segura</h3>
+                        <p style="color: var(--text-secondary);">Garantizamos que cada peso llegue a su destino con
+                            reportes detallados y seguimiento en tiempo real.</p>
+                    </div>
+                    <!-- Tarjeta: Transparencia e Impacto -->
+                    <div class="card">
+                        <div class="mission-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M16 12l-4-4-4 4M12 16V9"></path>
+                            </svg>
+                        </div>
+                        <h3>Impacto Directo</h3>
+                        <p style="color: var(--text-secondary);">Visualiza el cambio en tu escuela a través de
+                            fotografías y evidencias del proyecto completado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página: Información de contacto y enlaces legales -->
+    <footer>
+        <div class="container">
+            <h2>Crece Cole</h2>
+            <p>Juntos construimos la escuela que nuestros hijos merecen.</p>
+            <div class="footer-links">
+                <a href="#">privacidad</a>
+                <a href="#">contacto</a>
+                <a href="#">términos</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Crece Cole. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Carga de Scripts JavaScript modulares para la funcionalidad de la app -->
+    <script src="js/constantes.js"></script> <!-- Datos iniciales -->
+    <script src="js/almacenamiento.js"></script> <!-- Gestión de localStorage -->
+    <script src="js/autenticacion.js"></script> <!-- Lógica de login/registro -->
+    <script src="js/proyectos.js"></script> <!-- Gestión de proyectos -->
+    <script src="js/donaciones.js"></script> <!-- Gestión de donaciones -->
+    <script src="js/gestor-interfaz.js"></script> <!-- Manipulación del DOM global -->
+    <script src="js/seguridad.js"></script> <!-- Protección de rutas -->
+    <script src="js/principal.js"></script> <!-- Lógica de inicialización -->
+</body>
+
+</html>

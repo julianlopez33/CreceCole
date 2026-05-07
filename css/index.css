@@ -1,0 +1,140 @@
+/* Sección Hero: Área principal de impacto al inicio de la página */
+.index-hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); /* Fondo con degradado suave */
+    border-bottom: 1px solid var(--border); /* Borde sutil inferior */
+    padding: 8rem 0; /* Espaciado vertical amplio para dar aire al diseño */
+}
+
+/* Contenedor flexible del contenido hero */
+.hero-grid {
+    display: flex; /* Uso de Flexbox para el alineamiento */
+    flex-direction: column; /* Elementos uno debajo del otro */
+    text-align: center; /* Centrado del texto */
+    align-items: center; /* Centrado horizontal de los elementos */
+    justify-content: center; /* Centrado vertical del contenido */
+}
+
+/* Título principal de la página */
+.hero-title {
+    font-size: 4.5rem; /* Tamaño de fuente extra grande */
+    line-height: 1; /* Espacio entre líneas mínimo */
+    margin-bottom: 1.5rem; /* Espacio inferior con el párrafo */
+    color: var(--text-primary); /* Color de texto oscuro principal */
+}
+
+/* Estilo para la palabra resaltada dentro del título */
+.hero-title span {
+    color: var(--primary); /* Color azul de respaldo */
+    background: linear-gradient(90deg, var(--primary), var(--accent)); /* Degradado azul a morado */
+    -webkit-background-clip: text; /* Recorta el fondo a la forma del texto (Webkit) */
+    background-clip: text; /* Recorta el fondo a la forma del texto (Estándar) */
+    -webkit-text-fill-color: transparent; /* Hace que el color de relleno sea transparente para ver el degradado */
+    color: transparent; /* Fallback para navegadores antiguos */
+}
+
+/* Descripción secundaria debajo del título */
+.hero-description {
+    font-size: 1.25rem; /* Tamaño de fuente legible */
+    color: var(--text-secondary); /* Color gris para menor énfasis */
+    margin-bottom: 3rem; /* Espacio con los botones */
+    max-width: 800px; /* Limita el ancho para mejorar la lectura */
+    line-height: 1.6; /* Interlineado cómodo */
+}
+
+/* Contenedor de los botones de acción principal */
+.hero-buttons {
+    display: flex; /* Botones en horizontal */
+    gap: 1.5rem; /* Separación entre botones */
+    justify-content: center; /* Centrado horizontal */
+}
+
+/* Contenedor para la imagen del hero */
+.hero-image-container {
+    position: relative; /* Base para posicionar elementos flotantes */
+}
+
+/* Estilo de la imagen principal */
+.hero-image {
+    width: 100%; /* Ocupa el ancho total del contenedor */
+    border-radius: 24px; /* Esquinas muy redondeadas */
+    box-shadow: var(--shadow-lg); /* Sombra pronunciada */
+    transform: rotate(2deg); /* Ligera inclinación para un toque moderno */
+}
+
+/* Insignia flotante sobre la imagen */
+.hero-floating-badge {
+    position: absolute; /* Posicionamiento relativo al contenedor de la imagen */
+    bottom: -20px; /* Sobresale por abajo */
+    left: 20px; /* Alineado a la izquierda */
+    background: white; /* Fondo blanco puro */
+    padding: 1.5rem; /* Espacio interno */
+    border-radius: 16px; /* Esquinas redondeadas */
+    box-shadow: var(--shadow-lg); /* Sombra para dar profundidad */
+    display: flex; /* Alineación horizontal de contenido */
+    align-items: center; /* Centrado vertical */
+    gap: 1rem; /* Espacio entre el punto y el texto */
+}
+
+/* Punto indicador de la insignia */
+.badge-dot {
+    background: var(--success); /* Color verde indicador */
+    width: 12px; /* Ancho fijo */
+    height: 12px; /* Alto fijo */
+    border-radius: 50%; /* Forma circular */
+}
+
+/* Texto de la insignia */
+.badge-text {
+    font-weight: 700; /* Letra negrita */
+    color: var(--text-primary); /* Color de texto oscuro */
+}
+
+/* Sección de Estadísticas: Muestra números clave */
+.stats-section {
+    background: #f8fafc; /* Fondo gris muy suave */
+    color: var(--text-primary); /* Texto oscuro */
+    border-bottom: 1px solid #f1f5f9; /* Línea divisoria sutil */
+    padding: 4rem 0; /* Relleno vertical moderado */
+}
+
+/* Cuadrícula de estadísticas */
+.stats-grid {
+    display: grid; /* Sistema de rejilla */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
+    text-align: center; /* Centrado de números y etiquetas */
+    gap: 2rem; /* Espacio entre cada estadística */
+}
+
+/* Estilo de los números de las estadísticas */
+.stat-item h2 {
+    color: var(--primary); /* Color azul llamativo para el número */
+    font-size: 2.5rem; /* Tamaño de fuente grande */
+}
+
+/* Sección de Misión: Explica el propósito */
+.mission-header {
+    text-align: center; /* Texto centrado */
+    max-width: 700px; /* Ancho limitado para legibilidad */
+    margin: 0 auto 4rem auto; /* Centrado y margen inferior */
+}
+
+/* Cuadrícula de pilares de la misión */
+.mission-grid {
+    display: grid; /* Rejilla adaptable */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas automáticas según espacio */
+    gap: 2rem; /* Espacio entre tarjetas */
+}
+
+/* Icono dentro de las tarjetas de misión */
+.mission-card-icon {
+    background: #f1f5f9; /* Fondo gris claro */
+    width: 40px; /* Ancho del contenedor del icono */
+    height: 40px; /* Alto del contenedor del icono */
+    border-radius: 6px; /* Esquinas ligeramente redondeadas */
+    display: flex; /* Centrado del icono SVG */
+    align-items: center;
+    justify-content: center;
+    color: var(--primary); /* Icono en color azul */
+    margin-bottom: 1.5rem; /* Espacio con el título de la tarjeta */
+}
+

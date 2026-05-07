@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- Definición del documento HTML5 e idioma -->
+<html lang="es">
+<head>
+    <!-- Configuración Básica y Hojas de Estilo Específicas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Crece Cole</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <!-- CSS base y estilos exclusivos para la galería de proyectos -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/proyectos.css">
+</head>
+<body>
+    <!-- Encabezado y Navegación Principal -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- Logo corporativo -->
+                <a href="index.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M22 22l-7.5-1.5"></path></svg>
+                    crece cole
+                </a>
+                <!-- Menú hamburguesa para móviles -->
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <!-- Enlaces de navegación -->
+                <ul class="nav-links">
+                    <li><a href="index.html">inicio</a></li>
+                    <li><a href="nosotros.html">nosotros</a></li>
+                    <li><a href="proyectos.html" style="color: var(--primary); font-weight: 700;">proyectos</a></li>
+                    <li><a href="impacto.html">impacto</a></li>
+                    <!-- Perfil de usuario (oculto si no hay sesión) -->
+                    <li><a id="user-profile-link" href="perfil.html" style="display: none;">mi perfil</a></li>
+                </ul>
+                <!-- Botones de autenticación dinámica -->
+                <div class="auth-buttons">
+                    <a id="login-link" href="acceso.html" class="btn btn-primary">iniciar sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Banner Hero: Introducción a la sección de proyectos -->
+        <section class="hero-banner animate-fade">
+            <div>
+                <h1>Proyectos Escolares</h1>
+                <p>Descubre iniciativas increíbles y sé parte del crecimiento de nuestra comunidad educativa.</p>
+            </div>
+            <!-- Botón para disparar el modal de creación de campañas -->
+            <button id="open-create-modal" class="btn btn-create">crear proyecto</button>
+        </section>
+
+        <!-- Barra de Filtros: Permite categorizar la lista de proyectos -->
+        <div class="filter-container">
+            <button class="btn btn-primary filter-btn filter-btn-pill" data-category="all">todos</button>
+            <button class="btn btn-outline filter-btn filter-btn-pill" data-category="Tecnología">tecnología</button>
+            <button class="btn btn-outline filter-btn filter-btn-pill" data-category="Infraestructura">infraestructura</button>
+            <button class="btn btn-outline filter-btn filter-btn-pill" data-category="Deportes">deportes</button>
+            <button class="btn btn-outline filter-btn filter-btn-pill" data-category="Artes">artes</button>
+        </div>
+
+        <!-- Rejilla Dinámica: Aquí es donde JS inserta las tarjetas de proyectos -->
+        <div id="projects-grid">
+            <!-- El contenido se genera automáticamente desde proyectos.js -->
+        </div>
+    </main>
+
+    <!-- Ventana Modal: Interfaz para realizar donaciones -->
+    <div id="donation-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2 id="modal-project-title" class="modal-donation-title">Donar</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Tu apoyo hace la diferencia. Ingresa la cantidad que deseas aportar.</p>
+            <div class="form-group">
+                <label style="font-weight: 600; color: var(--text-primary);">Cantidad a donar ($)</label>
+                <input type="number" id="donation-amount" value="100" min="1" class="donation-input">
+            </div>
+            <!-- Acciones del modal de donación -->
+            <div class="modal-actions">
+                <button id="confirm-donation" class="btn btn-primary" style="flex: 2; padding: 1.2rem; border-radius: 16px;">confirmar donación</button>
+                <button id="close-modal" class="btn" style="flex: 1; padding: 1.2rem; border-radius: 16px; background: #f1f5f9; color: var(--text-secondary);">cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Modal: Formulario para registrar un nuevo proyecto escolar -->
+    <div id="create-project-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 0.5rem; color: var(--text-primary); font-size: 2rem;">Crear Nuevo Proyecto</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Cuéntanos sobre tu iniciativa para mejorar la escuela.</p>
+            <form id="create-project-form">
+                <div class="form-group">
+                    <label>Título del Proyecto</label>
+                    <input type="text" id="project-title" placeholder="Ej. Techumbre para patio" required>
+                </div>
+                <!-- Organización de campos en una fila (Categoría y Meta económica) -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Categoría</label>
+                        <select id="project-category" style="appearance: none; background: #fff;">
+                            <option value="Tecnología">Tecnología</option>
+                            <option value="Infraestructura">Infraestructura</option>
+                            <option value="Deportes">Deportes</option>
+                            <option value="Artes">Artes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Meta ($)</label>
+                        <input type="number" id="project-goal" placeholder="1000" min="100" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>URL de Imagen (Opcional)</label>
+                    <input type="url" id="project-image" placeholder="https://ejemplo.com/imagen.jpg">
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea id="project-desc" style="min-height: 120px;" placeholder="Describe el impacto de este proyecto..." required></textarea>
+                </div>
+                <!-- Botones de envío y cancelación -->
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary" style="flex: 2; padding: 1.2rem; border-radius: 16px;">lanzar proyecto</button>
+                    <button type="button" id="close-create-modal" class="btn" style="flex: 1; padding: 1.2rem; border-radius: 16px; background: #f1f5f9; color: var(--text-secondary);">cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pie de Página Unificado -->
+    <footer>
+        <div class="container">
+            <h2>Crece Cole</h2>
+            <p>Juntos construimos la escuela que nuestros hijos merecen.</p>
+            <div class="footer-links">
+                <a href="#">privacidad</a>
+                <a href="#">contacto</a>
+                <a href="#">términos</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Crece Cole. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Carga de la arquitectura de scripts modulares -->
+    <script src="js/constantes.js"></script>
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/autenticacion.js"></script>
+    <script src="js/proyectos.js"></script>
+    <script src="js/donaciones.js"></script>
+    <script src="js/gestor-interfaz.js"></script>
+    <script src="js/seguridad.js"></script>
+    <script src="js/principal.js"></script>
+</body>
+</html>
+
