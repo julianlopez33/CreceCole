@@ -1,0 +1,126 @@
+/* ==========================================================================
+   ESTILOS DE LA PÁGINA DE TUTORIAL
+   ========================================================================== */
+
+.tutorial-page {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tutorial-container {
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    border-radius: 32px;
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial-header {
+    background: var(--primary);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.tutorial-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+}
+
+.tutorial-header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.tutorial-content {
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.tutorial-step {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 32px;
+    border-radius: 24px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.tutorial-step:hover {
+    background: #f1f5f9;
+    transform: translateX(10px);
+    border-color: var(--border);
+}
+
+.step-icon {
+    background: var(--primary-light);
+    color: var(--primary);
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.step-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.step-info p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.tutorial-footer {
+    padding: 40px;
+    background: #f8fafc;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+}
+
+.btn-start {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 16px;
+    font-weight: 600;
+}
+
+/* Animaciones */
+.animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .tutorial-content {
+        padding: 30px;
+    }
+    .tutorial-step {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .tutorial-header h1 {
+        font-size: 1.8rem;
+    }
+}

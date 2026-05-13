@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 2. Verifica si el usuario tiene permiso para estar en la página actual (seguridad)
     App.checkAuth();
+
+    // 2.5 Verifica si el usuario es nuevo para mostrar el tutorial
+    if (App.Tutorial) {
+        App.Tutorial.checkOnboarding();
+    }
     
     // 3. Actualiza los botones de la barra de navegación (Login vs Perfil)
     App.updateUI();

@@ -12,12 +12,13 @@ window.App = window.App || {};
 App.register = function(userData) {
     // Carga la lista actual de usuarios o inicializa una vacía
     const users = App.load('users') || [];
-    // Agrega el nuevo usuario al array de la "base de datos"
-    users.push(userData);
+    // Agrega el nuevo usuario al array con la bandera de "nuevo usuario"
+    const newUser = { ...userData, isNewUser: true };
+    users.push(newUser);
     // Persiste la lista actualizada en el almacenamiento local
     App.save('users', users);
     // Notifica al usuario sobre el éxito de la operación
-    alert('¡Registro exitoso!');
+    alert('¡Registro exitoso! Ya puedes iniciar sesión.');
 };
 
 /**

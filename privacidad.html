@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de Privacidad | Crece Cole</title>
+    <meta name="description" content="Aviso de privacidad y protección de datos personales de Crece Cole.">
+    
+    <!-- Configuración de PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="apple-touch-icon" href="img/icon-192.png">
+
+    <!-- Enlaces a las hojas de estilo -->
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .privacy-content {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .privacy-content h2 {
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .privacy-content p {
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .privacy-content ul {
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .privacy-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .developers-section {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .developers-section h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dev-list {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .dev-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2.5rem;
+            border-radius: 16px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .dev-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dev-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .dev-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .privacy-content {
+                padding: 1.5rem;
+            }
+            .dev-list {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                        <path d="M2 2l7.5 1.5"></path>
+                        <path d="M22 22l-7.5-1.5"></path>
+                    </svg>
+                    crece cole
+                </a>
+                
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">inicio</a></li>
+                    <li><a href="nosotros.html">nosotros</a></li>
+                    <li><a href="proyectos.html">proyectos</a></li>
+                    <li><a href="impacto.html">impacto</a></li>
+                    <li><a id="user-profile-link" href="perfil.html" style="display: none;">mi perfil</a></li>
+                </ul>
+
+                <div class="auth-buttons">
+                    <a id="login-link" href="acceso.html" class="btn btn-primary">iniciar sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <h1 style="margin-bottom: 2rem; text-align: center; font-size: 3rem;">Aviso de <span>Privacidad</span></h1>
+            
+            <div class="privacy-content animate-fade">
+                <p>En <strong>Crece Cole</strong>, la privacidad de nuestros usuarios es una prioridad fundamental. Este documento detalla cómo recolectamos, utilizamos y protegemos su información personal.</p>
+
+                <h2>1. Información que Recolectamos</h2>
+                <p>Para proporcionar nuestros servicios de crowdfunding escolar, podemos solicitar los siguientes datos:</p>
+                <ul>
+                    <li>Nombre completo</li>
+                    <li>Correo electrónico</li>
+                    <li>Información de contacto</li>
+                    <li>Datos institucionales (en caso de representar a una escuela)</li>
+                </ul>
+
+                <h2>2. Uso de la Información</h2>
+                <p>Sus datos son utilizados exclusivamente para:</p>
+                <ul>
+                    <li>Gestionar las donaciones y proyectos escolares.</li>
+                    <li>Mantener la transparencia en el uso de los fondos.</li>
+                    <li>Enviar actualizaciones sobre el progreso de los proyectos apoyados.</li>
+                    <li>Garantizar la seguridad de las transacciones.</li>
+                </ul>
+
+                <h2>3. Derechos ARCO</h2>
+                <p>Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición).</p>
+
+                <h2>4. Seguridad</h2>
+                <p>Implementamos medidas de seguridad técnicas y organizativas para proteger sus datos personales contra acceso no autorizado, alteración o destrucción.</p>
+
+                <h2>5. Cambios en el Aviso</h2>
+                <p>Nos reservamos el derecho de efectuar en cualquier momento modificaciones o actualizaciones al presente aviso de privacidad, para la atención de novedades legislativas o políticas internas.</p>
+            </div>
+
+            <!-- Sección de Desarrolladores solicitada por el usuario -->
+            <section class="developers-section animate-fade" style="animation-delay: 0.2s;">
+                <h3>Equipo de Desarrollo</h3>
+                <div class="dev-list">
+                    <div class="dev-item">
+                        <div class="dev-name">Edwin Julian Lopez Ramirez</div>
+                        <div class="dev-role">Desarrollador Full Stack</div>
+                    </div>
+                    <div class="dev-item">
+                        <div class="dev-name">Angel Jesus Mendez Maciel</div>
+                        <div class="dev-role">Desarrollador Full Stack</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div class="container">
+            <h2>Crece Cole</h2>
+            <p>Juntos construimos la escuela que nuestros hijos merecen.</p>
+            <div class="footer-links">
+                <a href="privacidad.html">privacidad</a>
+                <a href="#">contacto</a>
+                <a href="#">términos</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Crece Cole. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/constantes.js"></script>
+    <script src="js/almacenamiento.js"></script>
+    <script src="js/autenticacion.js"></script>
+    <script src="js/tutorial.js"></script>
+    <script src="js/gestor-interfaz.js"></script>
+    <script src="js/principal.js"></script>
+</body>
+
+</html>
